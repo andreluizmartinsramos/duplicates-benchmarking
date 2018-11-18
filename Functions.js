@@ -84,3 +84,5 @@ function getAllDuplicatedByIndexOf(arr) {
   }
   return arrDuplicates;
 }  
+
+module.exports = { generateArr, getAllDuplicatedByPrevNext }
