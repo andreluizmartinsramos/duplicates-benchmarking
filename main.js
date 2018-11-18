@@ -3,7 +3,7 @@ import Functions from './Functions.js'
 const f = new Functions();
 
 console.time("generateArr");
-const arrExample = f.generateArr(1000000); //PUT HERE YOUR N (default = 1.000.000)
+const arrExample = f.generateArr(); //PUT HERE YOUR N (default = 1.000.000)
 console.timeEnd("generateArr");
 console.log(arrExample);
 
