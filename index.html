@@ -40,7 +40,7 @@
       <tr>
           <td><strong>getAllDuplicatedByIndexOf()</strong> <br/>Array Sorted > Values Uniques > Comparison between themselves </td>
           <td class="winner">0.085ms</td>        
-          <td>0.147ms</td>        
+          <td class="winner">0.147ms</td>        
           <td>0.947ms</td>        
           <td class="winner">0.955ms</td>        
           <td class="winner">1.051ms</td>           
@@ -49,8 +49,8 @@
       <tr>
           <td><strong>getAllDuplicatedByObject()</strong> <br/>Object Interpolation > Array Filter</td>
           <td>0.127ms</td>        
-          <td class="winner">0.142ms</td>        
-          <td class="winner">0.325ms</td>        
+          <td>0.171ms</td>        
+          <td class="winner">0.453ms</td>        
           <td>5.722ms</td>        
           <td >23.469ms</td>           
           <td class="winner">319,569ms</td>        
@@ -60,7 +60,7 @@
           <td>0.101ms</td>        
           <td>0.159ms</td>        
           <td>0.633ms</td>        
-          <td>4,760ms</td>        
+          <td>6,333ms</td>        
           <td>41.846ms</td>           
           <td>518,692ms</td>        
       </tr>                
@@ -95,29 +95,5 @@
     <blockquote>*All tests were performed 10x</blockquote>
 
   </body>
-  <script src="Functions.js"></script> 
-  <script>
-    
-    console.time("generateArr");
-    const arrExample = generateArr(10); //PUT HERE YOUR N (default = 1.000.000)
-    console.timeEnd("generateArr");
-    console.log(arrExample);
-
-    console.time("getAllDuplicatedByPrevNext");
-    const c0 = getAllDuplicatedByPrevNext(arrExample);
-    console.timeEnd("getAllDuplicatedByPrevNext");
-    console.log(c0);
-
-    console.time("getAllDuplicatedByObject");
-    const c1 = getAllDuplicatedByObject(arrExample);
-    console.timeEnd("getAllDuplicatedByObject");   
-    console.log(c1);
-
-    // console.time("getAllDuplicatedByIndexOf");
-    // const c2 = getAllDuplicatedByIndexOf(arrExample);  (Crashing when 1.000.000 Numbers)
-    // console.timeEnd("getAllDuplicatedByIndexOf");   
-    // console.log(c2);    
-
-
-  </script>  
+  <script src="./main.js" type="module"></script> 
 </html>
