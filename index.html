@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    body {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      margin: 20px;
+    }
+
+    td  {
+      padding: 10px;
+      font-size: 14px;
+      border-right: 1px solid #333;
+    }
+    th {
+      background: #efefef;
+      padding: 20px;
+      border-bottom: 1px solid #333;
+    }
+
+    .winner {
+      background-color: azure;
+    }
+
+  </style>
+  <body>
+    <h2>
+      Benchmarking Strategies
+    </h2>
+    <p>Take look at Functions.js to view the code. In the Chrome press Ctrl+F2 to view the console notifications. </p>
+    <table>
+      <tr>
+        <th>Strategy</th>
+        <th>10 Numbers</th>        
+        <th>100 Numbers</th>        
+        <th>1000 Numbers</th>        
+        <th>10000 Numbers</th>
+        <th>100000 Numbers</th>
+        <th>1000000 Numbers</th>                                                                                                
+      </tr>
+      <tr>
+          <td><strong>getAllDuplicatedByIndexOf()</strong> <br/>Array Sorted > Values Uniques > Comparison between themselves </td>
+          <td class="winner">0.085ms</td>        
+          <td>0.147ms</td>        
+          <td>0.947ms</td>        
+          <td class="winner">0.955ms</td>        
+          <td class="winner">1.051ms</td>           
+          <td>crashed</td>        
+      </tr>   
+      <tr>
+          <td><strong>getAllDuplicatedByObject()</strong> <br/>Object Interpolation > Array Filter</td>
+          <td>0.127ms</td>        
+          <td class="winner">0.142ms</td>        
+          <td class="winner">0.325ms</td>        
+          <td>5.722ms</td>        
+          <td >23.469ms</td>           
+          <td class="winner">319,569ms</td>        
+      </tr>   
+      <tr>
+          <td><strong>getAllDuplicatedByPrevNext()</strong> <br/>Sort -> Prev/Current Compare -> Set (non duplicated results)</td>
+          <td>0.101ms</td>        
+          <td>0.159ms</td>        
+          <td>0.633ms</td>        
+          <td>4,760ms</td>        
+          <td>41.846ms</td>           
+          <td>518,692ms</td>        
+      </tr>                
+    </table>
+
+    <h2>
+      Algorithm of Generate List
+    </h2>
+    <p>Generate Array according rules: Size items must be n+1; At least one duplicated (randomized); Randon range between 1 until n.</p>
+    <table>
+      <tr>
+        <th>Strategy</th>
+        <th>10 Numbers</th>        
+        <th>100 Numbers</th>        
+        <th>1000 Numbers</th>        
+        <th>10000 Numbers</th>
+        <th>100000 Numbers</th>
+        <th>1000000 Numbers</th>                                                                                                
+      </tr>
+      <tr>
+        <td><strong>generateArr()</strong> <br/>@param {Number} n - Default 1.000.000 <br />
+          @returns {(Array|Boolean)} Randon array whereas size = n, otherwise returns false.</td>
+        <td>0.019ms</td>        
+        <td>0.031ms</td>        
+        <td>0.199ms</td>        
+        <td>4.742ms</td>        
+        <td>5.447ms</td>           
+        <td>47.155ms</td>        
+      </tr>                   
+    </table>    
+
+    <blockquote>*All tests were performed 10x</blockquote>
+
+  </body>
+  <script src="Functions.js" ></script>
+  <script>
+
+    console.time("generateArr");
+    const arrExample = generateArr(1000000); //PUT HERE YOUR N (default = 1.000.000)
+    console.timeEnd("generateArr");
+    console.log(arrExample);
+
+    console.time("getAllDuplicatedByPrevNext");
+    const c0 = getAllDuplicatedByPrevNext(arrExample);
+    console.timeEnd("getAllDuplicatedByPrevNext");
+    console.log(c0);
+
+    console.time("getAllDuplicatedByObject");
+    const c1 = getAllDuplicatedByObject(arrExample);
+    console.timeEnd("getAllDuplicatedByObject");   
+    console.log(c1);
+
+    // console.time("getAllDuplicatedByIndexOf");
+    // const c2 = getAllDuplicatedByIndexOf(arrExample);  (Crashing when 1.000.000 Numbers)
+    // console.timeEnd("getAllDuplicatedByIndexOf");   
+    // console.log(c2);    
+
+
+  </script>  
+</html>
